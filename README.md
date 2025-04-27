@@ -1,6 +1,11 @@
+![AI Safety Incident Dashboard](public/dashboard.png)
 # AI Safety Incident Dashboard
 
 A modern web application built with React, TypeScript, and Vite.
+
+## Deployment
+
+This project is deployed on Netlify. You can view the live demo [here](https://skp-ai-safety-dashboard.netlify.app/).
 
 ## Tech Stack
 

@@ -1,0 +1,213 @@
+.sidebar {
+  width: 250px;
+  height: 100vh;
+  background-color: #1a2236;
+  color: #f5f5f5;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  left: 0;
+  top: 0;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  transition: width 0.3s ease;
+  z-index: 100;
+}
+
+.logo {
+  padding: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  text-align: center;
+}
+
+.logo h2 {
+  margin: 0;
+  font-size: 1.5rem;
+  color: #e4e4e4;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.navigation {
+  flex: 1;
+  padding: 20px 0;
+  overflow-y: auto;
+}
+
+.navList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.navItem {
+  display: flex;
+  align-items: center;
+  padding: 12px 20px;
+  color: #a0a0a0;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  border: none;
+  background: transparent;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  border-left: 3px solid transparent;
+}
+
+.navItem:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+  color: #f5f5f5;
+}
+
+.navItem.active {
+  color: #fff;
+  background-color: rgba(70, 0, 255, 0.1);
+  border-left: 3px solid #4600ff;
+}
+
+.icon {
+  font-size: 1.2rem;
+  margin-right: 12px;
+  width: 24px;
+  text-align: center;
+}
+
+.label {
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.footer {
+  padding: 15px 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.userInfo {
+  display: flex;
+  align-items: center;
+}
+
+.userAvatar {
+  width: 32px;
+  height: 32px;
+  background-color: #4600ff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 0.8rem;
+  margin-right: 10px;
+}
+
+.userName {
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.mobileNav {
+  display: none; 
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #1a2236;
+  color: #f5f5f5;
+  padding: 15px 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  z-index: 200;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.mobileTitle {
+  margin: 0;
+  font-size: 1.3rem;
+  color: #4600ff;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.menuToggle {
+  background: transparent;
+  border: none;
+  color: #f5f5f5;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding-right: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mobileMenu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background-color: #1a2236;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.mobileNavList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.mobileNavItem {
+  display: flex;
+  align-items: center;
+  padding: 15px 20px;
+  width: 100%;
+  border: none;
+  background: transparent;
+  color: #a0a0a0;
+  text-align: left;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  cursor: pointer;
+}
+
+.mobileNavItem:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+  color: #f5f5f5;
+}
+
+.mobileNavItem.active {
+  color: #fff;
+  background-color: rgba(70, 0, 255, 0.1);
+  border-left: 3px solid #4600ff;
+}
+
+@media (min-width: 769px) {
+  .sidebar {
+    display: flex;
+  }
+
+  .mobileNav {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    display: none;
+  }
+
+  .mobileNav {
+    display: flex;
+  }
+}

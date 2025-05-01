@@ -11,6 +11,7 @@ This project is deployed on Netlify. You can view the live demo [here](https://s
 
 - **Frontend**: React 19 with TypeScript
 - **Routing**: React Router
+- **State Management**: Redux Toolkit
 - **Build Tool**: Vite
 - **Styling**: CSS (customizable)
 - **Package Manager**: npm
@@ -62,6 +63,7 @@ npm run preview
 ```
 my-project-sparklehood/
 ├── src/                  # Source files
+│   ├── app/              # store for redux
 │   ├── assets/           # Static assets
 │   ├── components/       # Reusable UI components
 │   ├── features/         # Feature-specific modules

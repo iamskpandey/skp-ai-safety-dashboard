@@ -1,8 +1,3 @@
-.actionButtons {
-  display: flex;
-  gap: 12px;
-}
-
 .formWrapper {
   max-width: 800px;
   margin: 0 auto;
@@ -47,42 +42,9 @@
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
-.low,
-.medium,
-.high {
-  padding: 4px 10px;
-  border-radius: 16px;
-  font-size: 0.8rem;
-  font-weight: 600;
-  text-transform: uppercase;
-}
-
-.low {
-  background-color: #e8f5e9;
-  color: #2e7d32;
-}
-
-.medium {
-  background-color: #fff8e1;
-  color: #ff8f00;
-}
-
-.high {
-  background-color: #ffebee;
-  color: #c62828;
-}
-
 @media (max-width: 768px) {
   .statsRow {
     grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
     justify-items: center;
-  }
-
-}
-
-@media (max-width: 480px) {
-  .actionButtons {
-    width: 100%;
-    justify-content: flex-end;
   }
 }

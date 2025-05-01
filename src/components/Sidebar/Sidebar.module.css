@@ -77,36 +77,7 @@
   font-weight: 500;
 }
 
-.footer {
-  padding: 15px 20px;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.userInfo {
-  display: flex;
-  align-items: center;
-}
-
-.userAvatar {
-  width: 32px;
-  height: 32px;
-  background-color: #4600ff;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: bold;
-  font-size: 0.8rem;
-  margin-right: 10px;
-}
-
-.userName {
-  font-size: 0.85rem;
-  font-weight: 500;
-}
-
 .mobileNav {
-  display: none; 
   position: fixed;
   top: 0;
   left: 0;

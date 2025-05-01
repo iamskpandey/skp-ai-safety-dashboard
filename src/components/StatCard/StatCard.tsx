@@ -13,7 +13,6 @@ export default function StatCard({
     <div 
       className={`${styles.statCard} ${styles[size]} ${className}`}
       onClick={onClick}
-      role={onClick ? 'button' : 'region'}
     >
       <div 
         className={styles.header} 

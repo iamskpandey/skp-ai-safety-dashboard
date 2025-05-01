@@ -12,10 +12,6 @@ export default function Sidebar({ activeView }: SidebarProps) {
     { id: 'incidents', label: 'Incidents', icon: '🔔', path: '/incidents' }
   ];
   
-  function toggleMobileMenu() {
-    setMobileMenuOpen(!mobileMenuOpen);
-  }
-  
   function handleNavClick(path: string) {
     navigate(path);
     if (mobileMenuOpen) {
@@ -29,7 +25,7 @@ export default function Sidebar({ activeView }: SidebarProps) {
         <h2 className={styles.mobileTitle}>AI Safety</h2>
         <button 
           className={styles.menuToggle} 
-          onClick={toggleMobileMenu}
+          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           aria-label="Toggle menu"
         >
           {mobileMenuOpen ? '✕' : '☰'}

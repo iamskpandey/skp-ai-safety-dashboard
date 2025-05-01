@@ -4,12 +4,14 @@ import Button from '../Buttons/Button';
 import styles from './NewIncidentForm.module.css';
 import { useDispatch } from 'react-redux';
 import { addIncident } from '../../features/incidents/incidentsSlice';
+import Toast from '../Toast/Toast';
 
 export default function NewIncidentForm({ onCancel }: NewIncidentFormProps) {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [severity, setSeverity] = useState<SeverityType>('Medium');
   const [errors, setErrors] = useState<{title?: string; description?: string}>({});
+  const [showToast, setShowToast] = useState(false);
 
   const dispatch = useDispatch();
   
@@ -37,6 +39,11 @@ export default function NewIncidentForm({ onCancel }: NewIncidentFormProps) {
     };
     
     dispatch(addIncident(newIncident));
+   
+    setShowToast(true);
+    setTimeout(() => {
+      setShowToast(false);
+    }, 3000);
     
     setTitle('');
     setDescription('');
@@ -94,6 +101,7 @@ export default function NewIncidentForm({ onCancel }: NewIncidentFormProps) {
           <Button title="Submit" onClick={handleSubmit} />
         </div>
       </div>
+      {showToast && <Toast message="Incident reported successfully!" />}
     </div>
   );
 }

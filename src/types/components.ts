@@ -19,7 +19,6 @@ export interface IncidentCardProps {
 }
 
 export interface NewIncidentFormProps {
-  onSubmit: (incident: Omit<Incident, 'id'>) => void;
   onCancel: () => void;
 }
 

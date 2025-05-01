@@ -2,12 +2,16 @@ import { useState} from 'react';
 import { SeverityType, NewIncidentFormProps } from '../../types';
 import Button from '../Buttons/Button';
 import styles from './NewIncidentForm.module.css';
+import { useDispatch } from 'react-redux';
+import { addIncident } from '../../features/incidents/incidentsSlice';
 
-export default function NewIncidentForm({ onSubmit, onCancel }: NewIncidentFormProps) {
+export default function NewIncidentForm({ onCancel }: NewIncidentFormProps) {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [severity, setSeverity] = useState<SeverityType>('Medium');
   const [errors, setErrors] = useState<{title?: string; description?: string}>({});
+
+  const dispatch = useDispatch();
   
   const handleSubmit = () => {
     const newErrors: {title?: string; description?: string} = {};
@@ -32,7 +36,7 @@ export default function NewIncidentForm({ onSubmit, onCancel }: NewIncidentFormP
       reported_at: new Date().toISOString()
     };
     
-    onSubmit(newIncident);
+    dispatch(addIncident(newIncident));
     
     setTitle('');
     setDescription('');

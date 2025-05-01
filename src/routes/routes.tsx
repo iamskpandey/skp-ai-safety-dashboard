@@ -1,19 +1,18 @@
 import { RouteObject } from 'react-router-dom';
 import DashboardPage from '../pages/DashboardPage';
 import ViewIncidentsPage from '../pages/ViewIncidentsPage';
-import { RoutesProps } from '../types';
 
-export const getRoutes = ({ incidents, onAddIncident }: RoutesProps): RouteObject[] => [
+export const getRoutes = (): RouteObject[] => [
   {
     path: '/',
-    element: <DashboardPage incidents={incidents} onAddIncident={onAddIncident} />
+    element: <DashboardPage />
   },
   {
     path: '/dashboard',
-    element: <DashboardPage incidents={incidents} onAddIncident={onAddIncident} />
+    element: <DashboardPage />
   },
   {
     path: '/incidents',
-    element: <ViewIncidentsPage incidents={incidents} onAddIncident={onAddIncident} />
+    element: <ViewIncidentsPage  />
   }
 ];

@@ -1,6 +1,8 @@
 {
   "name": "my-project-incident-dashboard",
-  "author": {"name": "iamskpandey"},
+  "author": {
+    "name": "iamskpandey"
+  },
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -11,8 +13,10 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^2.7.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "react-redux": "^9.2.0",
     "react-router-dom": "^7.5.2"
   },
   "devDependencies": {

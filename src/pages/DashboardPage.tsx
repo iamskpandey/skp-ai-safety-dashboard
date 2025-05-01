@@ -4,21 +4,18 @@ import Button from '../components/Buttons/Button';
 import StatCard from '../components/StatCard/StatCard';
 import IncidentCard from '../components/IncidentCard/IncidentCard';
 import NewIncidentForm from '../components/NewIncidentForm/NewIncidentForm';
-import { DashboardPageProps, Incident } from '../types';
 import styles from './DashboardPage.module.css';
+import { useSelector } from 'react-redux';
+import { RootState } from '../app/store';
 
-export default function DashboardPage({ incidents, onAddIncident }: DashboardPageProps) {
+export default function DashboardPage() {
   const [showForm, setShowForm] = useState(false);
+  const incidents = useSelector((state: RootState) => state.incidents.incidents);
 
   const totalIncidents = incidents.length;
   const highSeverityCount = incidents.filter(incident => incident.severity === 'High').length;
   const mediumSeverityCount = incidents.filter(incident => incident.severity === 'Medium').length;
   const lowSeverityCount = incidents.filter(incident => incident.severity === 'Low').length;
-
-  function handleAddIncident(newIncident: Omit<Incident, 'id'>) {
-    onAddIncident(newIncident);
-    setShowForm(false);
-  }
 
   return (
     <MainLayout 
@@ -33,7 +30,6 @@ export default function DashboardPage({ incidents, onAddIncident }: DashboardPag
       {showForm ? (
         <div className={styles.formWrapper}>
           <NewIncidentForm 
-            onSubmit={handleAddIncident}
             onCancel={() => setShowForm(false)}
           />
         </div>

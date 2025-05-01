@@ -3,11 +3,15 @@ import MainLayout from '../layouts/MainLayout';
 import Button from '../components/Buttons/Button';
 import IncidentCard from '../components/IncidentCard/IncidentCard';
 import NewIncidentForm from '../components/NewIncidentForm/NewIncidentForm';
-import { ViewIncidentsPageProps, Incident, SeverityType, SortDirection } from '../types';
+import { SeverityType, SortDirection } from '../types';
 import { sortByDate } from '../utils/dateUtils';
 import styles from './ViewIncidentsPage.module.css';
+import { useSelector } from 'react-redux';
+import { RootState } from '../app/store';
 
-export default function ViewIncidentsPage({ incidents, onAddIncident }: ViewIncidentsPageProps) {
+export default function ViewIncidentsPage() {
+  const incidents = useSelector((state: RootState) => state.incidents.incidents);
+
   const [filterSeverity, setFilterSeverity] = useState<SeverityType | 'All'>('All');
   const [sortDirection, setSortDirection] = useState<SortDirection>('newest');
   const [showForm, setShowForm] = useState(false);
@@ -22,11 +26,6 @@ export default function ViewIncidentsPage({ incidents, onAddIncident }: ViewInci
     );
   }, [incidents, filterSeverity, sortDirection]);
   
-  function handleAddIncident(newIncident: Omit<Incident, 'id'>) {
-    onAddIncident(newIncident);
-    setShowForm(false);
-  }
-
   return (
     <MainLayout 
       title="Incident Reports" 
@@ -40,7 +39,6 @@ export default function ViewIncidentsPage({ incidents, onAddIncident }: ViewInci
       {showForm ? (
         <div className={styles.formWrapper}>
           <NewIncidentForm 
-            onSubmit={handleAddIncident}
             onCancel={() => setShowForm(false)}
           />
         </div>
